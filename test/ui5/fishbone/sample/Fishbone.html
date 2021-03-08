@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test Page - Fishbone</title>
+	<base href="../../../../">
+	<!--[if lte IE 9]><script>
+	(function() {
+		var baseTag = document.getElementsByTagName('base')[0];
+		baseTag.href = baseTag.href;
+	})();
+	</script><![endif]-->
+
+	<script id="sap-ui-bootstrap"
+        src="resources/sap-ui-core.js"
+        data-sap-ui-async="true"
+		data-sap-ui-libs="sap.m,ui5.fishbone"
+        data-sap-ui-xx-bindingSyntax="complex"
+		data-sap-ui-theme="sap_belize">
+	</script>
+
+
+	<script>
+		sap.ui.getCore().attachInit(function () {
+            // data model
+            var quality = uia.fishbone.data("Quality");
+            var machine = quality
+                .add("Machine")
+                    .leaf("Mill")
+                    .leaf("Mixer")
+                    .leaf("Metal Lathe")
+
+            var method = quality
+                .add("Method");
+
+            var material = quality
+                .add("Material");
+            material
+                .leaf("Masonite")
+                .add("Marscapone")
+                    .leaf("Malty")
+                    .add("Minty")
+                        .leaf("spearMint")
+                        .leaf("pepperMint");
+            var mainPower = quality
+                .add("Main Power")
+                    .leaf("Manager")
+                    .leaf("Master's Student")
+                    .leaf("Magician")
+                    .leaf("Miner");
+            mainPower.add("Magister")
+                        .leaf("Malpractice");
+            mainPower.add("Massage Artist")
+                .leaf("Masseuse")
+                .leaf("Masseur");
+            var measurement = quality
+                .add("Measurement")
+                    .leaf("Malleability");
+            var milieu = quality
+                .add("Milieu")
+                .leaf("Marine");
+
+            // set up model
+			var oModel = new sap.ui.model.json.JSONModel({
+				width: "100%",
+                height: "600"
+			});
+			sap.ui.getCore().setModel(oModel);
+
+			// create control
+			var oDiagram = new ui5.fishbone.Fishbone({
+				id: "fishbone1"
+			});
+			oDiagram.setData(quality);
+
+            oDiagram.placeAt("content");
+
+		});
+	</script>
+</head>
+<body 
+    id="content" 
+    class="sapUiBody" 
+    style="height:100vh; width:100vw;">
+</body>
+</html>

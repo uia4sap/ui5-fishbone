@@ -1,0 +1,32 @@
+{
+	"ui5.fishbone": {
+		"icon": "sap-icon://chart",
+		"name": "Fishbone Diagram for UI5",
+		"description": "Examples of Fishbone Diagram",
+		"source" : "https://github.com/uia4w/ui5-fishbone",
+		"documentation": "https://github.com/uia4w/ui5-fishbone",
+		"demo" : "https://github.com/uia4w/ui5-fishbone",
+		"license": "Apache 2.0",
+		"version": "1.0.0",
+		"content": {
+			"Fishbone": {
+				"id": "Fishbone",
+				"name": "Fishbone",
+				"type": "control",
+				"description": "",
+				"samples": [
+					{
+						"id": "Fishbone",
+						"name": "Simple Diagram",
+						"description": "A simplest fishbone diagram"
+					},
+					{
+						"id": "FishboneClickable",
+						"name": "Node Clickable",
+						"description": "Get info of the selected node"
+					}
+				]
+			}
+		}
+	}
+}
