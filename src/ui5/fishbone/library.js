@@ -6,7 +6,12 @@ sap.ui.define([
 	'sap/ui/core/library',
     "./libs/fishbonejs/uia-fishbone",
     "./libs/d3/d3.min"
-], function () {
+], function (
+	jQuery,
+	library,
+	Fishbone,
+	D3
+) {
 	"use strict";
 
 	sap.ui.getCore().initLibrary({

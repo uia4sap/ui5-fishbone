@@ -60,7 +60,7 @@ sap.ui.define([
 
         setWidth: function(width) {
 			this.setProperty("width", width, true);
-			if(this.__diagram) {
+			if (this.__diagram) {
 				this.__diagram.width(width);
 			}
             return this;
@@ -68,7 +68,7 @@ sap.ui.define([
 
         setHeight: function(height) {
 			this.setProperty("height", height, true);
-			if(this.__diagram) {
+			if (this.__diagram) {
 				this.__diagram.height(height);
 			}
             return this;
@@ -76,7 +76,7 @@ sap.ui.define([
 
         setDrillEnabled: function(drillEnabled) {
 			this.setProperty("drillEnabled", drillEnabled, true);
-			if(this.__diagram) {
+			if (this.__diagram) {
 				this.__diagram.drillEnabled(drillEnabled);
 			}
             return this;
@@ -84,8 +84,8 @@ sap.ui.define([
 
         setData: function(data) {
 			this.setProperty("data", data, true);
-			if(this.__diagram) {
-				data.build(this._diagram);
+			if (this.__diagram) {
+				data.build(this.__diagram);
 			}
             return this;
         },
@@ -99,7 +99,7 @@ sap.ui.define([
 				.nodeClicked(this.onNodeClicked.bind(this));
 
 			var fishboneData = this.getData();
-			if(fishboneData) {
+			if (fishboneData) {
 				fishboneData.build(this.__diagram);
 			}
         },

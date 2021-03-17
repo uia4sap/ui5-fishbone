@@ -12,10 +12,11 @@ This UI5 control wraps the [Fishbone Diagram](https://github.com/uia4w/uia-fishb
 
 ## Build and Text
 
-1. npm install
+1. npm install - init the project.
 
-2. npm start
+2. npm start - launch test pages.
    
+3. npm run build - build the library.
 
 
 
