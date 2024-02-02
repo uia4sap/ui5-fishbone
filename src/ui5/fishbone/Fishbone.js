@@ -1,33 +1,35 @@
 sap.ui.define([
     "sap/ui/core/Control",
-    "sap/ui/core/Element"
+    "sap/ui/core/Element",
+    "./library"
 ], function(
     Control,
-    Element
+    Element,
+    library
 ) {
 
-	"use strict";
+    "use strict";
 
-	/**
-	 * Constructor for a new Fishbone control.
-	 *
-	 * @param {string} [sId] id for the new control, generated automatically if no id is given
-	 * @param {object} [mSettings] initial settings for the new control
-	 *
-	 * @class
-	 *
-	 * @public
-	 * @alias ui5.fishbone.Fishbone
-	 */
-	var oFishbone = Control.extend("ui5.fishbone.Fishbone", {
+    /**
+     * Constructor for a new Fishbone control.
+     *
+     * @param {string} [sId] id for the new control, generated automatically if no id is given
+     * @param {object} [mSettings] initial settings for the new control
+     *
+     * @class
+     *
+     * @public
+     * @alias ui5.fishbone.Fishbone
+     */
+    var oFishbone = Control.extend("ui5.fishbone.Fishbone", {
 
-		__diagram: undefined,
-		
-		metadata: {
+        __diagram: undefined,
 
-			"library" : "ui5.fishbone",
+        metadata: {
 
-			"properties": {
+            "library": "ui5.fishbone",
+
+            "properties": {
 
                 width: { type: "string", group: "appearance", defaultValue: "100%" },
 
@@ -52,70 +54,70 @@ sap.ui.define([
                     }
                 }
             }
-		},
+        },
 
         constructor: function(sId, mSettings) {
             Element.apply(this, arguments);
         },
 
         setWidth: function(width) {
-			this.setProperty("width", width, true);
-			if (this.__diagram) {
-				this.__diagram.width(width);
-			}
+            this.setProperty("width", width, true);
+            if (this.__diagram) {
+                this.__diagram.width(width);
+            }
             return this;
         },
 
         setHeight: function(height) {
-			this.setProperty("height", height, true);
-			if (this.__diagram) {
-				this.__diagram.height(height);
-			}
+            this.setProperty("height", height, true);
+            if (this.__diagram) {
+                this.__diagram.height(height);
+            }
             return this;
         },
 
         setDrillEnabled: function(drillEnabled) {
-			this.setProperty("drillEnabled", drillEnabled, true);
-			if (this.__diagram) {
-				this.__diagram.drillEnabled(drillEnabled);
-			}
+            this.setProperty("drillEnabled", drillEnabled, true);
+            if (this.__diagram) {
+                this.__diagram.drillEnabled(drillEnabled);
+            }
             return this;
         },
 
         setData: function(data) {
-			this.setProperty("data", data, true);
-			if (this.__diagram) {
-				data.build(this.__diagram);
-			}
+            this.setProperty("data", data, true);
+            if (this.__diagram) {
+                data.build(this.__diagram);
+            }
             return this;
         },
 
-		onAfterRendering: function() {
-			this.__diagram = uia.fishbone.diagram(this.getId())
-				.width(this.getWidth())
-				.height(this.getHeight())
-				.drillEnabled(this.getDrillEnabled())
-				.drilled(this.onDrilled.bind(this))
-				.nodeClicked(this.onNodeClicked.bind(this));
+        onAfterRendering: function() {
+            this.__diagram = uia.fishbone.diagram(this.getId())
+                .width(this.getWidth())
+                .height(this.getHeight())
+                .drillEnabled(this.getDrillEnabled())
+                .drilled(this.onDrilled.bind(this))
+                .nodeClicked(this.onNodeClicked.bind(this));
 
-			var fishboneData = this.getData();
-			if (fishboneData) {
-				fishboneData.build(this.__diagram);
-			}
+            var fishboneData = this.getData();
+            if (fishboneData) {
+                fishboneData.build(this.__diagram);
+            }
         },
 
-		onDrilled: function(d) {
-			this.fireDrilled({
-				data: d
-			});
-		},
+        onDrilled: function(d) {
+            this.fireDrilled({
+                data: d
+            });
+        },
 
-		onNodeClicked: function(d) {
-			this.fireNodeClicked({
-				data: d
-			});
-		}
-	});
+        onNodeClicked: function(d) {
+            this.fireNodeClicked({
+                data: d
+            });
+        }
+    });
 
-	return oFishbone;
+    return oFishbone;
 });

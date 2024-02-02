@@ -1,37 +1,38 @@
 {
-  "name": "ui5-fishbone",
-  "version": "1.0.0",
-  "description": "Fishbone",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/uia4w/ui5-fishhone.git"
-  },
-  "homepage": "https://github.com/uia4w/ui5-fishhone",
-  "ui5lab": {
-    "namespace": "ui5.fishbone",
-    "icon": "chart",
-    "displayName": "Fishbone Diagram"
-  },
-  "license": "Apache-2.0",
-  "private": false,
-  "scripts": {
-    "prepare": "node prepare.js",
-    "start": "ui5 serve --open ./test-resources/ui5lab/browser/index.html",
-    "build": "ui5 build",
-    "eslint": "eslint src/ui5/fishbone"
-  },
-  "dependencies": {
-    "d3": "^3.1.0",
-    "@openui5/sap.f": "1.58.4",
-    "@openui5/sap.m": "1.58.4",
-    "@openui5/sap.ui.core": "1.58.4",
-    "@openui5/sap.ui.layout": "1.58.4",
-    "@openui5/themelib_sap_belize": "1.58.4"
-  },
-  "devDependencies": {
-    "eslint": "^5.2.0",
-    "fs-extra": "^3.0.0",
-    "@ui5/cli": "1.14.0",
-    "ui5lab-browser": "1.0.0"
-  }
+    "name": "ui5-fishbone",
+    "version": "1.0.0",
+    "description": "Fishbone",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/uia4w/ui5-fishhone.git"
+    },
+    "homepage": "https://github.com/uia4w/ui5-fishhone",
+    "ui5lab": {
+        "namespace": "ui5.fishbone",
+        "icon": "chart",
+        "displayName": "Fishbone Diagram"
+    },
+    "license": "Apache-2.0",
+    "private": false,
+    "scripts": {
+        "prepare": "node prepare.js",
+        "start": "ui5 serve --open ./test-resources/ui5lab/browser/index.html",
+        "build": "ui5 build",
+        "release": "rimraf dist && ui5 build --exclude-task=createDebugFiles",
+        "eslint": "eslint src/ui5/fishbone"
+    },
+    "dependencies": {
+        "d3": "^3.1.0",
+        "@openui5/sap.f": "1.58.4",
+        "@openui5/sap.m": "1.58.4",
+        "@openui5/sap.ui.core": "1.58.4",
+        "@openui5/sap.ui.layout": "1.58.4",
+        "@openui5/themelib_sap_belize": "1.58.4"
+    },
+    "devDependencies": {
+        "eslint": "^5.2.0",
+        "fs-extra": "^3.0.0",
+        "@ui5/cli": "1.14.0",
+        "ui5lab-browser": "1.0.0"
+    }
 }
