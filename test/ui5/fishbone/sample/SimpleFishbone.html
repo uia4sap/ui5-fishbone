@@ -13,6 +13,7 @@
 		baseTag.href = baseTag.href;
 	})();
 	</script><![endif]-->
+
         <script id="sap-ui-bootstrap" src="resources/sap-ui-core.js" data-sap-ui-async="true" data-sap-ui-libs="sap.m,ui5.fishbone" data-sap-ui-xx-bindingSyntax="complex" data-sap-ui-theme="sap_belize">
         </script>
         <script>
@@ -143,14 +144,7 @@
 
                 // create control
                 var oDiagram = new ui5.fishbone.Fishbone({
-                    id: "fishbone1",
-                    name: "XD46"
-                });
-                // oDiagram.setDrillEnabled(false);
-
-                oDiagram.attachNodeClicked(function(e) {
-                    var data = e.getParameter("data");
-                    alert(data.key + ":" + data.name);
+                    id: "fishbone1"
                 });
                 oDiagram.refreshBones(wip);
                 oDiagram.placeAt("content");
